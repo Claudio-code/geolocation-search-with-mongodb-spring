@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  geolocation-api:
+    container_name: geolocation-api
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - geolocation-api-network
+    depends_on:
+      - geolocation-mongodb
+
+  geolocation-mongodb:
+    container_name: geolocation-mongodb
+    image: mongo:3
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodbData:/data/db
+    networks:
+      - geolocation-api-network
+
+networks:
+  geolocation-api-network:
+    driver: bridge
