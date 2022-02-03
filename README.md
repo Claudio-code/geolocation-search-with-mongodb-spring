@@ -8,7 +8,7 @@
 - MongoDB
 - Docker
 
-## Building
+## How build it project ?
 
 You'll need [docker](https://www.docker.com) and [docker-compose](https://docs.docker.com/compose/) installed on your computer to build this application using the command:
 
