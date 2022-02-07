@@ -1,9 +1,7 @@
 package com.search.geolocationsearchwithmongodbspring.repository;
 
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
-import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Repository
-public interface StudentRepository extends JpaRepository<Student, String> {
+public interface StudentRepository extends MongoRepository<Student, String> {
 }

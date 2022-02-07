@@ -1,6 +1,6 @@
 package com.search.geolocationsearchwithmongodbspring.controller;
 
-import com.search.geolocationsearchwithmongodbspring.factory.StudentDTOFactory;
+import com.search.geolocationsearchwithmongodbspring.factory.dto.StudentDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
