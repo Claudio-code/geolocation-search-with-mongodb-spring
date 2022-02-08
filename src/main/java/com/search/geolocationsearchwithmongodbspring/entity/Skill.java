@@ -14,4 +14,12 @@ public class Skill {
     private String id;
     private String name;
     private LevelEnum level;
+
+    public String name() {
+        return name;
+    }
+
+    public LevelEnum level() {
+        return level;
+    }
 }

@@ -12,4 +12,8 @@ public class Course {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String id;
     private String name;
+
+    public String name() {
+        return name;
+    }
 }

@@ -19,4 +19,30 @@ public class Student {
     private Course course;
     private List<Note> notes;
     private List<Skill> skills;
+
+    public String name() {
+        return name;
+    }
+
+    public LocalDate birthday() {
+        return birthday;
+    }
+
+    public Course course() {
+        return course;
+    }
+
+    public List<Note> listOfNotes() {
+        if (notes == null) {
+            return List.of();
+        }
+        return notes;
+    }
+
+    public List<Skill> listOfSkills() {
+        if (skills == null) {
+            return List.of();
+        }
+        return skills;
+    }
 }

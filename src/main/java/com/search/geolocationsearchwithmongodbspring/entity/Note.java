@@ -12,4 +12,8 @@ public class Note {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String id;
     private Double value;
+
+    public Double noteValue() {
+        return value;
+    }
 }
