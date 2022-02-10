@@ -1,6 +1,6 @@
 package com.search.geolocationsearchwithmongodbspring.controller;
 
-import com.search.geolocationsearchwithmongodbspring.entity.Student;
+import com.search.geolocationsearchwithmongodbspring.dto.findall.ListStudentsResponseDTO;
 import com.search.geolocationsearchwithmongodbspring.factory.PageableFactory;
 import com.search.geolocationsearchwithmongodbspring.factory.dto.StudentDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.service.StudentService;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 
 import javax.validation.Valid;
@@ -30,9 +29,7 @@ public class StudentController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Page<Student> findAll(PageableFactory pageableFactory) {
-        var allStudents = studentService.findAll(pageableFactory.make());
-
-        return allStudents;
+    public ListStudentsResponseDTO findAll(PageableFactory pageableFactory) {
+        return studentService.findAll(pageableFactory.make());
     }
 }
