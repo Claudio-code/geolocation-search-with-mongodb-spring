@@ -18,8 +18,8 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/student")
-public class StudentController {
-    private final StudentService studentService;
+public class StudentController extends BaseController {
+    private  StudentService studentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
