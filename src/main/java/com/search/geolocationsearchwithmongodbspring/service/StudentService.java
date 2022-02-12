@@ -6,17 +6,28 @@ import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.factory.StudentFactory;
 import com.search.geolocationsearchwithmongodbspring.factory.dto.ListStudentsResponseDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.repository.StudentRepository;
+
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 @Service
-public record StudentService(StudentRepository studentRepository) {
+public class StudentService {
+    private static final String CACHE_KEY = "student";
+    private final StudentRepository studentRepository;
+    private final ValidateService validateService;
+
     public void create(StudentDTO studentDTO) {
-        StudentFactory studentFactory = new StudentFactory(studentDTO);
-        Student student = studentFactory.make();
+        final StudentFactory studentFactory = new StudentFactory(studentDTO);
+        final Student student = studentFactory.make();
+        validateService.verifyIfStudentExist(student);
         studentRepository.save(student);
     }
 
+    @CachePut(cacheNames = CACHE_KEY, key = "#pageable.getPageNumber()-#pageable.getPageSize()")
     public ListStudentsResponseDTO findAll(Pageable pageable) {
         return ListStudentsResponseDTOFactory.builder()
                 .listStudents(studentRepository.findAll())
