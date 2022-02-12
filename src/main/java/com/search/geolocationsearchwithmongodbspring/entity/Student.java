@@ -20,6 +20,10 @@ public class Student {
     private List<Note> notes;
     private List<Skill> skills;
 
+    public String id() {
+        return id;
+    }
+
     public String name() {
         return name;
     }

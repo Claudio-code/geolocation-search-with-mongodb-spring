@@ -13,6 +13,7 @@ public class StudentResponseDTOFactory implements FactoryInterface<StudentRespon
     public StudentResponseDTO make() {
         CourseDTOFactory courseDTOFactory = new CourseDTOFactory(student.course().name());
         return StudentResponseDTO.builder()
+                .id(student.id())
                 .name(student.name())
                 .birthday(student.birthday())
                 .course(courseDTOFactory.make())
