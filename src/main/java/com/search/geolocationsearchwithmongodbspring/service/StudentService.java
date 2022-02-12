@@ -4,15 +4,19 @@ import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.ListStudentsResponseDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.exception.StudentAlreadyExistsException;
+import com.search.geolocationsearchwithmongodbspring.exception.StudentNotExistsException;
 import com.search.geolocationsearchwithmongodbspring.factory.StudentFactory;
 import com.search.geolocationsearchwithmongodbspring.factory.dto.ListStudentsResponseDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.repository.StudentRepository;
 
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
+
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -37,5 +41,14 @@ public class StudentService {
                 .pageable(pageable)
                 .build()
                 .make();
+    }
+
+    public Student findOne(Student student) {
+        final Example<Student> studentExample = Example.of(student);
+        final Optional<Student> optionalStudent = studentRepository.findOne(studentExample);
+        if (optionalStudent.isEmpty()) {
+            throw new StudentNotExistsException();
+        }
+        return optionalStudent.get();
     }
 }

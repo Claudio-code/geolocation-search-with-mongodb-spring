@@ -8,5 +8,5 @@ public enum LevelEnum {
     MIDDLE("Middle"),
     SENIOR("Senior");
 
-    public final String levelName;
+    private final String name;
 }

@@ -49,4 +49,12 @@ public class Student {
         }
         return skills;
     }
+
+    public void addNewSkill(Skill skill) {
+        if (skills == null) {
+            skills = List.of(skill);
+            return;
+        }
+        skills.add(skill);
+    }
 }
