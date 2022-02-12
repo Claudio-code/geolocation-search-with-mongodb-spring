@@ -1,13 +1,12 @@
 package com.search.geolocationsearchwithmongodbspring.controller;
 
-import com.search.geolocationsearchwithmongodbspring.dto.skill.SkillRequestDTO;
+import com.search.geolocationsearchwithmongodbspring.factory.dto.SkillRequestDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.service.SkillService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
@@ -17,6 +16,7 @@ public class SkillController extends BaseController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(SkillRequestDTO skillRequestDTO) {
+    public void create(@RequestBody @Valid SkillRequestDTOFactory skillRequestDTOFactory) {
+        skillService.create(skillRequestDTOFactory.make());
     }
 }
