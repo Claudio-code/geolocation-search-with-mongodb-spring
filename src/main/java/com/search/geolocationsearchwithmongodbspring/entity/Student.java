@@ -61,6 +61,7 @@ public class Student {
     public void addNewNote(Note note) {
         if (notes == null) {
             notes = List.of(note);
+            return;
         }
         notes.add(note);
     }
