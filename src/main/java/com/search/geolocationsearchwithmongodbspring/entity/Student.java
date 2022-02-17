@@ -57,4 +57,11 @@ public class Student {
         }
         skills.add(skill);
     }
+
+    public void addNewNote(Note note) {
+        if (notes == null) {
+            notes = List.of(note);
+        }
+        notes.add(note);
+    }
 }
