@@ -7,21 +7,23 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public record ValidateService(StudentRepository studentRepository) {
     public Boolean verifyIfStudentExist(Student student) {
         final Example<Student> studentExample = Example.of(student);
-        final Optional<Student> optionalStudent = studentRepository.findOne(studentExample);
-        return optionalStudent.isPresent();
+        return studentRepository.exists(studentExample);
     }
 
     public Boolean verifyIfSkillExist(Student student, Skill skillToSave) {
-        final List<Skill> skillList = student.listOfSkills();
-        final List<Skill> skillListFiltered = skillList.stream()
-                .filter(skill -> skill.name().equalsIgnoreCase(skillToSave.name()))
+        final List<Skill> skillListFiltered = student.listOfSkills()
+                .parallelStream()
+                .filter(skill -> verifySkillNameIsEqually(skill, skillToSave))
                 .toList();
         return !skillListFiltered.isEmpty();
+    }
+
+    private Boolean verifySkillNameIsEqually(Skill skillSaved, Skill skillToSave) {
+        return skillSaved.name().equalsIgnoreCase(skillToSave.name());
     }
 }
