@@ -1,8 +1,7 @@
 package com.search.geolocationsearchwithmongodbspring.service;
 
-import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.ListStudentsResponseDTO;
-import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.exception.StudentAlreadyExistsException;
 import com.search.geolocationsearchwithmongodbspring.repository.StudentRepository;
 import com.search.geolocationsearchwithmongodbspring.util.StudentCreateUtil;

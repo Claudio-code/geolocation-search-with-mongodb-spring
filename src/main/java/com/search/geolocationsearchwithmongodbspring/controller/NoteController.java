@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/note")
+@RequestMapping("/v1/note")
 public class NoteController extends BaseController {
     private NoteService noteService;
 

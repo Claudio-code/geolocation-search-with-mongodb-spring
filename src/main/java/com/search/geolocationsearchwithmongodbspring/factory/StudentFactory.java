@@ -1,6 +1,6 @@
 package com.search.geolocationsearchwithmongodbspring.factory;
 
-import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 
 public record StudentFactory(StudentDTO studentDTO) implements FactoryInterface<Student> {

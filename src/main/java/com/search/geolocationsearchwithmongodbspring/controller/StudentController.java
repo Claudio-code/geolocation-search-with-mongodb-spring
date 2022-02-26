@@ -3,6 +3,7 @@ package com.search.geolocationsearchwithmongodbspring.controller;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.ListStudentsResponseDTO;
 import com.search.geolocationsearchwithmongodbspring.factory.PageableFactory;
 import com.search.geolocationsearchwithmongodbspring.factory.dto.StudentDTOFactory;
+import com.search.geolocationsearchwithmongodbspring.factory.dto.StudentSearchRequestDTOFactory;
 import com.search.geolocationsearchwithmongodbspring.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +18,9 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/student")
+@RequestMapping("/v1/student")
 public class StudentController extends BaseController {
-    private  StudentService studentService;
+    private final StudentService studentService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -31,5 +32,11 @@ public class StudentController extends BaseController {
     @ResponseStatus(HttpStatus.OK)
     public ListStudentsResponseDTO findAll(PageableFactory pageableFactory) {
         return studentService.findAll(pageableFactory.make());
+    }
+
+    @GetMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public void search(StudentSearchRequestDTOFactory studentSearchRequestDTOFactory) {
+        studentService.searchBy(studentSearchRequestDTOFactory.make());
     }
 }

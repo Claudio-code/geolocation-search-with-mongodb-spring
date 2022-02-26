@@ -3,7 +3,6 @@ package com.search.geolocationsearchwithmongodbspring.factory.dto;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.NoteResponseDTO;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.SkillResponseDTO;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.StudentResponseDTO;
-import com.search.geolocationsearchwithmongodbspring.entity.Note;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.factory.FactoryInterface;
 import lombok.Builder;

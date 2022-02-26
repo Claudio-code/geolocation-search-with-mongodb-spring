@@ -1,6 +1,6 @@
 package com.search.geolocationsearchwithmongodbspring.factory.dto;
 
-import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.factory.FactoryInterface;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

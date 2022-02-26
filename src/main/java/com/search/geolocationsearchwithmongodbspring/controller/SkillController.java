@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/skill")
+@RequestMapping("/v1/skill")
 public class SkillController extends BaseController {
     private final SkillService skillService;
 

@@ -1,7 +1,8 @@
 package com.search.geolocationsearchwithmongodbspring.service;
 
-import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.dto.findall.ListStudentsResponseDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentSearchRequestDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.exception.StudentAlreadyExistsException;
 import com.search.geolocationsearchwithmongodbspring.exception.StudentNotExistsException;
@@ -50,5 +51,9 @@ public class StudentService {
             throw new StudentNotExistsException();
         }
         return optionalStudent.get();
+    }
+
+    public void searchBy(StudentSearchRequestDTO studentSearchRequestDTO) {
+        studentRepository.findAllBy(studentSearchRequestDTO.getName()).forEach(student -> System.out.println(student.name()));
     }
 }

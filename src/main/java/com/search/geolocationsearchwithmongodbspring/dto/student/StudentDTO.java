@@ -1,7 +1,8 @@
-package com.search.geolocationsearchwithmongodbspring.dto;
+package com.search.geolocationsearchwithmongodbspring.dto.student;
 
 import java.time.LocalDate;
 
+import com.search.geolocationsearchwithmongodbspring.dto.CourseDTO;
 import lombok.Builder;
 import lombok.Getter;
 

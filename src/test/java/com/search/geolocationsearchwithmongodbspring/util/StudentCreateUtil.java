@@ -1,10 +1,9 @@
 package com.search.geolocationsearchwithmongodbspring.util;
 
 import com.search.geolocationsearchwithmongodbspring.dto.CourseDTO;
-import com.search.geolocationsearchwithmongodbspring.dto.StudentDTO;
+import com.search.geolocationsearchwithmongodbspring.dto.student.StudentDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Course;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
-import org.mockito.Mockito;
 
 import java.time.LocalDate;
 import java.util.List;
