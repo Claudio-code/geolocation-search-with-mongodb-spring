@@ -36,7 +36,7 @@ public class StudentController extends BaseController {
 
     @GetMapping("/search")
     @ResponseStatus(HttpStatus.OK)
-    public void search(StudentSearchRequestDTOFactory studentSearchRequestDTOFactory) {
-        studentService.searchBy(studentSearchRequestDTOFactory.make());
+    public ListStudentsResponseDTO search(StudentSearchRequestDTOFactory studentSearchRequestDTOFactory) {
+        return studentService.searchBy(studentSearchRequestDTOFactory.make());
     }
 }

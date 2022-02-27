@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -53,7 +54,13 @@ public class StudentService {
         return optionalStudent.get();
     }
 
-    public void searchBy(StudentSearchRequestDTO studentSearchRequestDTO) {
-        studentRepository.findAllBy(studentSearchRequestDTO.getName()).forEach(student -> System.out.println(student.name()));
+    @CachePut(cacheNames = CACHE_KEY, key = "#studentSearchRequestDTO.getCacheKey()")
+    public ListStudentsResponseDTO searchBy(StudentSearchRequestDTO studentSearchRequestDTO) {
+        final List<Student> studentList = studentRepository.findAllBy(studentSearchRequestDTO.getName());
+        return ListStudentsResponseDTOFactory.builder()
+                .listStudents(studentList)
+                .pageable(studentSearchRequestDTO.getPageable())
+                .build()
+                .make();
     }
 }
