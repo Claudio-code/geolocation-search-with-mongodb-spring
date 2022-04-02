@@ -12,6 +12,7 @@ services:
       - geolocation-api-network
     depends_on:
       - geolocation-mongodb
+      - geolocation-redis
 
   geolocation-mongodb:
     container_name: geolocation-mongodb
