@@ -11,7 +11,7 @@ RUN gradle build --no-daemon
 FROM openjdk:17-slim-bullseye
 
 RUN apt-get update \
-    && apt-get upgrade \
+    && apt-get upgrade -y \
     && apt-get install -y locales \
     && locale-gen en_US.UTF-8
 
