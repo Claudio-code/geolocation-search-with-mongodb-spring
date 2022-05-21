@@ -4,10 +4,10 @@ import com.search.geolocationsearchwithmongodbspring.dto.skill.SkillRequestDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.enuns.LevelEnum;
 import com.search.geolocationsearchwithmongodbspring.factory.FactoryInterface;
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 public class SkillRequestDTOFactory implements FactoryInterface<SkillRequestDTO> {
     private String studentId;
