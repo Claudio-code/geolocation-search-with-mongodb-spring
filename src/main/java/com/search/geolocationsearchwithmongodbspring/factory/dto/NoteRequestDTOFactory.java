@@ -3,10 +3,10 @@ package com.search.geolocationsearchwithmongodbspring.factory.dto;
 import com.search.geolocationsearchwithmongodbspring.dto.note.NoteRequestDTO;
 import com.search.geolocationsearchwithmongodbspring.entity.Student;
 import com.search.geolocationsearchwithmongodbspring.factory.FactoryInterface;
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 public class NoteRequestDTOFactory implements FactoryInterface<NoteRequestDTO> {
     private String studentId;
